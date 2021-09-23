@@ -1,0 +1,7 @@
+
+Lmod is automatically replacing "gcc/6.1.0" with "pgi/18.4"
+
+
+Inactive Modules:
+  1) cuda/10.0.130  2) cudnn/7.1
+

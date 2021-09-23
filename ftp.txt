@@ -1,0 +1,3 @@
+https://www.computerhope.com/unix/sftp.htm#Interactive-Mode
+https://www.computerhope.com/unix/sftp.htm
+https://learn.akamai.com/en-us/webhelp/netstorage/netstorage-user-guide/GUID-E0B5C44E-7618-4C41-B9AB-186CF3E28628.html
