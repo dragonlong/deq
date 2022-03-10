@@ -1,18 +1,32 @@
 sudo /usr/local/bin/accessuser jlindeq
 
+chown -R jlindeq MOVES301_src
+
+chgrp -R deq .
+
+chmod ug+x -R .
+
 scontrol write batch_script <jobid>
 
+scontrol show job 925094 | grep TimeLimit
 
-tinkercliffs: 
+sudo scontrol update jobid=917265 TimeLimit=10-00:00:00
+
+sudo scontrol update jobid=918967 TimeLimit=12-00:00:00
+sudo scontrol update jobid=919092 TimeLimit=12-00:00:00
+
+sudo scontrol update jobid=925094 TimeLimit=12-00:00:00
+
+tinkercliffs:
 	- MOVES
 Non-road task:
 	- MOVES3;
-1. 
+1.
 /groups/deq/cascades/models/MOVES3/4-testruns/nonroad_chesterfield_2tests/test1
 /groups/deq/cascades/models/MOVES3/4-testruns/nonroad_chesterfield_2tests/test1/scripts
 
 2. copy and modify the scripts:
-	sbatch the 
+	sbatch the
 
 3. /groups/deq/cascades/models/MOVES3/4-testruns/nonroad_chesterfield_2tests/test1/post_proc
 	much lower than Sonya result;

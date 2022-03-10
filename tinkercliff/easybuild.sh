@@ -1,6 +1,7 @@
 # https://github.com/easybuilders/easybuild
 # https://github.com/easybuilders/easybuild-easyconfigs
-
+# https://arc.vt.edu/video-tutorials/
+# https://video.vt.edu/media/Creating+Custom+Software+Modules+with+EasyBuild/1_et3mu28o
 # # using existing packages
 # eb -S netcdf
 # eb -D $CFGS3/w/WRF/WRFv4_netCDF-Fortran_separate_path.patch
