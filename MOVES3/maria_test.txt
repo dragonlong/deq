@@ -1,0 +1,278 @@
+[lxiaol9@ca038 database]$ mysql -u root --socket=$runDir/mysql/mysql.sock
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 18
+Server version: 10.4.12-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SELECT User, Host FROM mysql.user WHERE Host <> 'localhost';
++-------+-----------+
+| User  | Host      |
++-------+-----------+
+| moves | 127.0.0.1 |
+|       | ca038     |
++-------+-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| movesdb20201105    |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [(none)]> USE movesdb20201105
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [movesdb20201105]> SHOW TABLES;
++----------------------------------+
+| Tables_in_movesdb20201105        |
++----------------------------------+
+| agecategory                      |
+| agegroup                         |
+| atbaseemissions                  |
+| atratio                          |
+| atratiogas2                      |
+| atrationongas                    |
+| averagetankgasoline              |
+| averagetanktemperature           |
+| avft                             |
+| avgspeedbin                      |
+| avgspeeddistribution             |
+| basefuel                         |
+| coldsoakinitialhourfraction      |
+| coldsoaktanktemperature          |
+| complexmodelparametername        |
+| complexmodelparameters           |
+| county                           |
+| countytype                       |
+| countyyear                       |
+| crankcaseemissionratio           |
+| criteriaratio                    |
+| cumtvvcoeffs                     |
+| datasource                       |
+| dayofanyweek                     |
+| dayvmtfraction                   |
+| dioxinemissionrate               |
+| driveschedule                    |
+| drivescheduleassoc               |
+| driveschedulesecond              |
+| driveschedulesecondlink          |
+| e10fuelproperties                |
+| emissionprocess                  |
+| emissionrate                     |
+| emissionrateadjustment           |
+| emissionratebyage                |
+| emissionratebyagelev             |
+| emissionratebyagenlev            |
+| enginesize                       |
+| enginetech                       |
+| etohbin                          |
+| evaprvptemperatureadjustment     |
+| evaptemperatureadjustment        |
+| extendedidlehours                |
+| fueladjustment                   |
+| fuelengfraction                  |
+| fuelengtechassoc                 |
+| fuelformulation                  |
+| fuelmodelname                    |
+| fuelmodelwtfactor                |
+| fuelmodelyeargroup               |
+| fuelparametername                |
+| fuelsubtype                      |
+| fuelsupply                       |
+| fuelsupplyyear                   |
+| fueltype                         |
+| fuelusagefraction                |
+| fuelwizardfactors                |
+| fullacadjustment                 |
+| generalfuelratio                 |
+| generalfuelratioexpression       |
+| greetmanfanddisposal             |
+| greetwelltopump                  |
+| grid                             |
+| gridzoneassoc                    |
+| hcpermeationcoeff                |
+| hcspeciation                     |
+| hotellingactivitydistribution    |
+| hotellingagefraction             |
+| hotellingcalendaryear            |
+| hotellinghourfraction            |
+| hotellinghours                   |
+| hotellinghoursperday             |
+| hotellingmonthadjust             |
+| hourday                          |
+| hourofanyday                     |
+| hourvmtfraction                  |
+| hpmsvtype                        |
+| hpmsvtypeday                     |
+| hpmsvtypeyear                    |
+| idledayadjust                    |
+| idlemodelyeargrouping            |
+| idlemonthadjust                  |
+| idleregion                       |
+| imcoverage                       |
+| imfactor                         |
+| iminspectfreq                    |
+| immodelyeargroup                 |
+| importstartsopmodedistribution   |
+| imteststandards                  |
+| imtesttype                       |
+| integratedspeciesset             |
+| integratedspeciessetname         |
+| link                             |
+| linkaveragespeed                 |
+| linkhourvmtfraction              |
+| linksourcetypehour               |
+| lumpedspeciesname                |
+| m6sulfurcoeff                    |
+| meanfuelparameters               |
+| mechanismname                    |
+| metalemissionrate                |
+| methanethcratio                  |
+| minorhapratio                    |
+| modelyear                        |
+| modelyearcutpoints               |
+| modelyeargroup                   |
+| modelyearmapping                 |
+| monthgrouphour                   |
+| monthgroupofanyyear              |
+| monthofanyyear                   |
+| monthvmtfraction                 |
+| nono2ratio                       |
+| nragecategory                    |
+| nratratio                        |
+| nrbaseyearequippopulation        |
+| nrcrankcaseemissionrate          |
+| nrdayallocation                  |
+| nrdeterioration                  |
+| nrdioxinemissionrate             |
+| nremissionrate                   |
+| nrengtechfraction                |
+| nrequipmenttype                  |
+| nrevapemissionrate               |
+| nrfuelsubtype                    |
+| nrfuelsupply                     |
+| nrfueltype                       |
+| nrgrowthindex                    |
+| nrgrowthpattern                  |
+| nrgrowthpatternfinder            |
+| nrhcspeciation                   |
+| nrhourallocation                 |
+| nrhourallocpattern               |
+| nrhourpatternfinder              |
+| nrhpcategory                     |
+| nrhprangebin                     |
+| nrintegratedspecies              |
+| nrmetalemissionrate              |
+| nrmethanethcratio                |
+| nrmonthallocation                |
+| nrpahgasratio                    |
+| nrpahparticleratio               |
+| nrprocessgroup                   |
+| nrretrofitfactors                |
+| nrscc                            |
+| nrscrappagecurve                 |
+| nrsourceusetype                  |
+| nrstatesurrogate                 |
+| nrsulfuradjustment               |
+| nrsurrogate                      |
+| nrusmonthallocation              |
+| offnetworklink                   |
+| omdgpolprocessrepresented        |
+| onroadretrofit                   |
+| operatingmode                    |
+| opmodedistribution               |
+| opmodepolprocassoc               |
+| oxythreshname                    |
+| pahgasratio                      |
+| pahparticleratio                 |
+| pm10emissionratio                |
+| pmspeciation                     |
+| pollutant                        |
+| pollutantdisplaygroup            |
+| pollutantprocessassoc            |
+| pollutantprocessmodelyear        |
+| processdisplaygroup              |
+| processgroupid                   |
+| refuelingfactors                 |
+| regclassfraction                 |
+| region                           |
+| regioncode                       |
+| regioncounty                     |
+| regulatoryclass                  |
+| retrofitinputassociations        |
+| roadidlefraction                 |
+| roadtype                         |
+| roadtypedistribution             |
+| samplevehicleday                 |
+| samplevehiclepopulation          |
+| samplevehiclesoaking             |
+| samplevehiclesoakingday          |
+| samplevehiclesoakingdaybasis     |
+| samplevehiclesoakingdaybasisused |
+| samplevehiclesoakingdayused      |
+| samplevehicletrip                |
+| scc                              |
+| sector                           |
+| sho                              |
+| sizeweightfraction               |
+| soakactivityfraction             |
+| sourcebin                        |
+| sourcebindistribution            |
+| sourcehours                      |
+| sourcetypeage                    |
+| sourcetypeagedistribution        |
+| sourcetypedayvmt                 |
+| sourcetypehour                   |
+| sourcetypemodelyear              |
+| sourcetypemodelyeargroup         |
+| sourcetypepolprocess             |
+| sourcetypetechadjustment         |
+| sourcetypeyear                   |
+| sourcetypeyearvmt                |
+| sourceusetype                    |
+| sourceusetypephysics             |
+| starts                           |
+| startsageadjustment              |
+| startshourfraction               |
+| startsmonthadjust                |
+| startsopmodedistribution         |
+| startsperday                     |
+| startsperdaypervehicle           |
+| startspervehicle                 |
+| startssourcetypefraction         |
+| starttempadjustment              |
+| state                            |
+| sulfateemissionrate              |
+| sulfatefractions                 |
+| sulfurbase                       |
+| sulfurcapamount                  |
+| sulfurmodelcoeff                 |
+| sulfurmodelname                  |
+| tanktemperaturegroup             |
+| tanktemperaturerise              |
+| tankvaporgencoeffs               |
+| temperatureadjustment            |
+| temperaturefactorexpression      |
+| temperatureprofileid             |
+| togspeciation                    |
+| togspeciationprofile             |
+| togspeciationprofilename         |
+| totalidlefraction                |
+| weightclass                      |
+| year                             |
+| zone                             |
+| zonemonthhour                    |
+| zoneroadtype                     |
++----------------------------------+
+237 rows in set (0.001 sec)

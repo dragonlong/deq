@@ -4,6 +4,12 @@ sudo umount -l YOUR_MNT_DIR
 sudo diskutil umount Downloads/ARChome
 umount -f ~/Downloads/ARChome
 #
+
+sshfs lxiaol9@cascades1.arc.vt.edu:/groups/deq/Shared/Xiaolong/build/src.v7.10_DDM2_intel/ /home/dragonx/ARCwork/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+
+
+sshfs lxiaol9@cascades1.arc.vt.edu:/groups/deq/Shared/Xiaolong/ICBC_2ndOrder /home/dragonx/ARCwork/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+sshfs lxiaol9@cascades1.arc.vt.edu:/groups/deq/Shared/Xiaolong/build/ /home/dragonx/ARCnew/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 sshfs lxiaol9@cascades1.arc.vt.edu:/groups/deq/cascades/models/MOVES3/4-testruns/nonroad_chesterfield_2tests /home/dragonx/ARCwork/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 sshfs lxiaol9@cascades1.arc.vt.edu:/groups/deq/cascades/models/MOVES3/4-testruns/nonroad_chesterfield_2tests /home/dragonx/ARCwork/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 

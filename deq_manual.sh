@@ -8,9 +8,12 @@ chmod ug+x -R .
 
 scontrol write batch_script <jobid>
 
-scontrol show job 925094 | grep TimeLimit
-
-sudo scontrol update jobid=917265 TimeLimit=10-00:00:00
+scontrol show job 932781 | grep TimeLimit
+scontrol show job 932496 | grep TimeLimit
+932781  normal_q camx710_  jlindeq  R   19:47:53      1 ca078
+932496  normal_q 2016_cam  jlindeq  R 1-22:06:32      1 ca077
+sudo scontrol update jobid=943185 TimeLimit=17-00:00:00
+sudo scontrol update jobid=932496 TimeLimit=12-00:00:00
 
 sudo scontrol update jobid=918967 TimeLimit=12-00:00:00
 sudo scontrol update jobid=919092 TimeLimit=12-00:00:00

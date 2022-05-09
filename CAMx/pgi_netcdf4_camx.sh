@@ -1,0 +1,66 @@
+# https://github.com/Unidata/netcdf-c/releases?page=2
+export /groups/deq/Shared/Xiaolong/build
+tar xvzf zlib-1.2.12.tar.gz
+cd zlib-1.2.12
+./configure --prefix=/groups/deq/cascades/apps/zlib/1.2.12
+make
+make install
+
+export FC=pgf90
+export CC=gcc
+
+# cd {SRC_DIR}
+tar xvzf hdf5-1.12.0.tar.gz
+cd hdf5-1.12.0
+export LDFLAGS=$LDFLAGS:-L/groups/deq/Shared/Xiaolong/apps/zlib/1.2.12
+./configure --prefix=/groups/deq/cascades/apps/hdf5/1.12.0 --enable-fortran
+make
+make install
+
+#!/bin/csh
+echo "Setting up modules"
+cd /groups/deq/Shared/lxiaol9/build/
+module purge
+module load intel/18.2 hdf5/1.8.16 cmake/3.10.3
+# echo "extracting"
+# tar -xzf netcdf-c-4.6.1.tar.gz
+cd netcdf-c-4.6.1
+CINSTDIR='/groups/deq/cascades/utils_intel/intel18.2/netCDF/4.6.1'
+echo "running configure for netcdf-c"
+./configure --prefix=$CINSTDIR --enable-shared --disable-dap >& ./ncf-c_conf.log
+echo "running make check install"
+make
+make install 2>&1 | tee ncf-c_make.log
+# make check install >& ./ncf-c_make.log
+cd ..
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/groups/deq/cascades/utils_intel/intel18.2/netCDF/4.6.1/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/groups/deq/cascades/utils_intel/intel18.2/netCDF-f/4.4.5/lib
+setenv LD_LIBRARY_PATH $LD_LIBRARY_PATH:/groups/deq/cascades/utils_intel/intel18.2/netCDF/4.6.1/lib
+setenv LD_LIBRARY_PATH $LD_LIBRARY_PATH:/groups/deq/cascades/utils_intel/intel18.2/netCDF-f/4.4.5/lib
+# https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.5.tar.gz
+
+echo "Setting up modules"
+module purge
+module load intel/18.2 hdf5/1.8.16 cmake/3.10.3
+# echo "extracting netcdf-f"
+# tar -xzf netcdf-fortran-4.4.5.tar.gz
+cd netcdf-fortran-4.4.5
+CINSTDIR='/groups/deq/cascades/utils_intel/intel18.2/netCDF/4.6.1'
+export CFLAGS="-I${CINSTDIR}/include"
+export CPPFLAGS="-I${CINSTDIR}/include"
+export LDFLAGS="-L${CINSTDIR}/lib -lnetcdf"
+export FINSTDIR=/groups/deq/cascades/utils_intel/intel18.2/netCDF-f/4.4.5
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CINSTDIR/lib
+export PATH=$PATH:$CINSTDIR/bin
+echo "running configure for netcdf-f"
+./configure --prefix=$FINSTDIR --enable-shared 2>&1 | tee ./ncf-f_conf.log
+echo "running make install"
+make install 2>&1 | tee ./ncf-f_make.log
+echo "finished"
+
+
+# >>>>
+# Xiaolong, using openmpi4, and intel 18.2,
+
+make COMPILER=ifort CONFIG=v7.10.MXLAYER.MXPTSRC1900k.MXFDDM_MXTRSP MPI=openmpi NCF=NCF4_C IEEE=true 2>&1 | tee make_new_4.6.1.log

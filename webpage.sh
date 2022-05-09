@@ -23,5 +23,10 @@ sshfs lxiaol9@cascades1.arc.vt.edu:/groups/deq/cascades/web_air_quality /home/dr
 
 https://www.docs.arc.vt.edu/_sources/deq.md.txt
 https://code.vt.edu/s4-hosting-sites/
+https://myst-parser.readthedocs.io/en/latest/sphinx/intro.html
+https://docs.readthedocs.io/en/stable/config-file/v2.html
 
 https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html?highlight=markdown#using-markdown-with-sphinx
+mkdir docs
+cd docs
+sphinx-quickstart
